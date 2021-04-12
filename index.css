@@ -1,0 +1,69 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+/* Phone */
+.Phone {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 44vh;
+  height: 88vh;
+  max-width: 408px;
+  max-height: 816px;
+  border-radius: 50px;
+  background-color: gainsboro;
+  border: 12px solid black;
+}
+
+.Phone-notch {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 30px;
+  top: 0;
+  border-bottom-left-radius: 26px;
+  border-bottom-right-radius: 26px;
+  background-color: black;
+}
+
+.Phone-notch::before, .Phone-notch::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 0px solid black;
+}
+
+.Phone-notch::before {
+  top: -3px;
+  left: -7px;
+  border-top-width: 3px;
+  border-right-width: 3px;
+  border-top-right-radius: 8px;
+}
+
+.Phone-notch::after {
+  top: -3px;
+  right: -7px;
+  border-top-width: 3px;
+  border-left-width: 3px;
+  border-top-left-radius: 8px;
+}
+
+.Phone-screen {
+  flex: 1;
+  overflow-y: scroll;
+  margin: 0px 2px;
+}
+
+/* Hugkin */
+.Hugkin {
+  flex: 1;
+  padding: 40px 18px;
+}
