@@ -163,6 +163,7 @@ body {
 .CardList {
   display: flex;
   flex-direction: column;
+  transition: transform 1.0s;
 }
 
 .Card {
@@ -171,6 +172,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 80px;
+  transition: height 1.0s;
 }
 
 .Card.is-selected {
@@ -182,4 +184,5 @@ body {
   max-width: 334px;
   border-radius: 16px;
   box-shadow: 0 0 20px #2d2d2d66;
+  transition: transform 1.0s;
 }

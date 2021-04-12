@@ -34,8 +34,6 @@ async function hide($el, animate) {
   }
 
   finishHide($el, animate)
-
-  await wait(300)
 }
 
 async function finishHide($el, animate) {
