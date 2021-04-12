@@ -8,15 +8,17 @@ const kMaxOffset2 = kMaxOffset / 2
 // -- props --
 let $mEl = null
 let $mLines = null
+let $mNotes = null
 
 // -- lifetime --
 export function init() {
   // capture elements
   $mEl = document.getElementById("menu")
   $mLines = $mEl.querySelectorAll(".Menu-line")
+  $mNotes = $mEl.querySelectorAll(".Menu-note")
 
   // prepare ui
-  prepare()
+  reshift()
 
   // export interface
   return {
@@ -26,27 +28,6 @@ export function init() {
 }
 
 // -- commands --
-function prepare() {
-  // shift lines right
-  let offset = 0
-  for (const $el of $mLines) {
-    if (offset >= kMaxOffset2) {
-      offset = rand(offset)
-    } else {
-      offset = offset + rand(kMaxOffset - offset)
-    }
-
-    $el.dataset.tx = offset
-    $el.style.transform = `translateX(${offset}px)`
-  }
-
-  // shift notes down
-  const $notes = $mEl.querySelectorAll(".Menu-note")
-  for (const $el of $notes) {
-    $el.style.transform = `translateY(${-5 + rand(10)}px)`
-  }
-}
-
 async function show() {
   await view.show($mEl)
 }
@@ -61,9 +42,27 @@ async function hide() {
         $el.style.transform = `translate(${tx}px, ${ty}px) rotate(${ta}deg)`
       }
     } else {
-      for (const $el of $mLines) {
-        $el.style.transform = `translate(${$el.dataset.tx}px)`
-      }
+      reshift()
     }
   })
+}
+
+function reshift() {
+  // shift lines right
+  let offset = 0
+  for (const $el of $mLines) {
+    if (offset >= kMaxOffset2) {
+      offset = rand(offset)
+    } else {
+      offset = offset + rand(kMaxOffset - offset)
+    }
+
+    $el.style.transform = `translateX(${offset}px)`
+  }
+
+  // shift notes down
+  const $notes = $mEl.querySelectorAll(".Menu-note")
+  for (const $el of $notes) {
+    $el.style.transform = `translateY(${-5 + rand(10)}px)`
+  }
 }
