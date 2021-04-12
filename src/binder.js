@@ -1,3 +1,4 @@
+import { view } from "./view.js"
 import { rand } from "./utils.js"
 
 // -- props --
@@ -45,9 +46,9 @@ function prepare() {
 }
 
 async function show() {
-  $mEl.classList.toggle("is-hidden", false)
+  await view.show($mEl)
 }
 
 async function hide() {
-  $mEl.classList.toggle("is-hidden", true)
+  await view.hide($mEl)
 }

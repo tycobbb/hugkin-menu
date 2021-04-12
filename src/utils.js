@@ -9,8 +9,12 @@ export function wait(millis) {
   })
 }
 
-export function waitFrame() {
-  return new Promise((res, _rej) => {
-    requestAnimationFrame(res)
-  })
+export async function waitFrames(count = 1) {
+  for (let i = count; i > 0; i--) {
+    await waitFrame()
+  }
+}
+
+function waitFrame() {
+  return new Promise(requestAnimationFrame)
 }

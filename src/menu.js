@@ -1,4 +1,5 @@
-import { rand, wait } from "./utils.js"
+import { view } from "./view.js"
+import { rand } from "./utils.js"
 
 // -- constants --
 const kMaxOffset = 20
@@ -19,7 +20,6 @@ export function init() {
 
   // export interface
   return {
-    present,
     show,
     hide,
   }
@@ -47,36 +47,23 @@ function prepare() {
   }
 }
 
-function present() {
-  $mEl.classList.toggle("is-loading", false)
-}
-
 async function show() {
-  $mEl.classList.toggle("is-hidden", false)
+  await view.show($mEl)
 }
 
 async function hide() {
-  $mEl.classList.toggle("is-hiding", true)
-
-  for (const $el of $mLines) {
-    const tx = -60 - rand(20)
-    const ty = -kMaxOffset2 + rand(kMaxOffset)
-    const ta = -15 + rand(30)
-    $el.style.transform = `translate(${tx}px, ${ty}px) rotate(${ta}deg)`
-  }
-
-  hide2()
-
-  await wait(300)
-}
-
-async function hide2() {
-  await wait(1000)
-
-  for (const $el of $mLines) {
-    $el.style.transform = `translate(${$el.dataset.tx}px)`
-  }
-
-  $mEl.classList.toggle("is-hiding", false)
-  $mEl.classList.toggle("is-hidden", true)
+  await view.hide($mEl, (animating) => {
+    if (animating) {
+      for (const $el of $mLines) {
+        const tx = -60 - rand(20)
+        const ty = -kMaxOffset2 + rand(kMaxOffset)
+        const ta = -15 + rand(30)
+        $el.style.transform = `translate(${tx}px, ${ty}px) rotate(${ta}deg)`
+      }
+    } else {
+      for (const $el of $mLines) {
+        $el.style.transform = `translate(${$el.dataset.tx}px)`
+      }
+    }
+  })
 }

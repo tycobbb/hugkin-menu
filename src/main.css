@@ -102,17 +102,22 @@ body {
   transition: opacity 1.0s;
 }
 
-.Hugkin-screen.is-loading {
-  opacity: 0.0;
+.Hugkin-screen.is-animating {
+  display: initial !important;
+  position: absolute;
 }
 
 .Hugkin-screen.is-hiding {
-  position: absolute;
-  opacity: 0.0;
+  opacity: 0.0 !important;
+}
+
+.Hugkin-screen.is-showing {
+  opacity: 1.0 !important;
 }
 
 .Hugkin-screen.is-hidden {
   display: none;
+  opacity: 0.0;
 }
 
 /* text */
@@ -129,10 +134,6 @@ body {
 /* Menu */
 .Menu-line {
   transition: transform 1.0s;
-}
-
-.Menu.is-loading .Menu-line {
-  transition: none;
 }
 
 .Menu-note {

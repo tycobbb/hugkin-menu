@@ -1,6 +1,6 @@
 import { init as initMenu } from "./menu.js"
 import { init as initBinder } from "./binder.js"
-import { wait, waitFrame } from "./utils.js"
+import { wait, waitFrames } from "./utils.js"
 
 // -- props --
 let mMenu = null
@@ -14,7 +14,7 @@ async function main() {
 
   // wait for assets to load
   await document.fonts.ready
-  await wait(100)
+  await wait(200)
 
   // initialize screens
   mMenu = initMenu()
@@ -22,10 +22,6 @@ async function main() {
 
   // show screeen
   showCurrent()
-
-  // show ui
-  await waitFrame()
-  mMenu.present()
 }
 
 // -- commands --
