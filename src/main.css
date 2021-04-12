@@ -104,6 +104,16 @@ body {
   opacity: 0.0;
 }
 
+.Hugkin-screen.is-hiding {
+  position: absolute;
+  z-index: -1;
+}
+
+.Hugkin-screen.is-hidden {
+  position: absolute;
+  opacity: 0.0;
+}
+
 /* text */
 .Hugkin h1 {
   font-size: 48px;
@@ -116,6 +126,14 @@ body {
 }
 
 /* Menu */
+.Menu-line {
+  transition: transform 0.3s;
+}
+
+.Menu.is-loading .Menu-line {
+  transition: none;
+}
+
 .Menu-note {
   display: inline-block;
   margin-left: 5px;
@@ -130,7 +148,6 @@ body {
   margin-bottom: 25px;
   background-image: url("../assets/border.svg");
 }
-
 
 .Nav a {
   display: block;
