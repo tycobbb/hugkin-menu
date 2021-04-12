@@ -56,16 +56,24 @@ async function show() {
 }
 
 async function hide() {
-  $mEl.classList.toggle("is-hiding", true)
+  $mEl.classList.toggle("is-hidden", true)
 
   for (const $el of $mLines) {
-    const tx = -kMaxOffset2 + Math.random(kMaxOffset)
-    const ty = -kMaxOffset2 + Math.random(kMaxOffset)
-    $el.style.transform = `translate(${tx}px, ${ty}px)`
+    const tx = -60 - rand(20)
+    const ty = -kMaxOffset2 + rand(kMaxOffset)
+    const ta = -15 + rand(30)
+    $el.style.transform = `translate(${tx}px, ${ty}px) rotate(${ta}deg)`
   }
 
-  await wait(300)
+  reset()
 
-  $mEl.classList.toggle("is-hiding", false)
-  $mEl.classList.toggle("is-hidden", true)
+  await wait(300)
+}
+
+async function reset() {
+  await wait(1000)
+
+  for (const $el of $mLines) {
+    $el.style.transform = `translate(${$el.dataset.tx}px)`
+  }
 }

@@ -38,17 +38,23 @@ function showCurrent() {
   }
 }
 
-function show(screen) {
-  if (mVisible === screen) {
+async function show(next) {
+  if (mVisible === next) {
     return
   }
 
-  if (mVisible != null) {
-    mVisible.hide()
+  // update state
+  const prev = mVisible
+  mVisible = next
+
+  // run animations
+  if (prev != null) {
+    await prev.hide()
   }
 
-  mVisible = screen
-  mVisible.show()
+  if (next != null) {
+    await next.show()
+  }
 }
 
 // -- events -
