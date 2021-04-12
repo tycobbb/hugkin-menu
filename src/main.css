@@ -1,0 +1,141 @@
+/* resets */
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* container */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+
+/* Phone */
+.Phone {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 44px;
+  overflow: hidden;
+}
+
+.Phone-frame {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 12px solid black;
+  border-radius: 44px;
+  pointer-events: none;
+}
+
+.Phone-notch {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 30px;
+  top: 0;
+  border-bottom-left-radius: 26px;
+  border-bottom-right-radius: 26px;
+  background-color: black;
+}
+
+.Phone-notch::before, .Phone-notch::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 0px solid black;
+}
+
+.Phone-notch::before {
+  top: -3px;
+  left: -7px;
+  border-top-width: 3px;
+  border-right-width: 3px;
+  border-top-right-radius: 8px;
+}
+
+.Phone-notch::after {
+  top: -3px;
+  right: -7px;
+  border-top-width: 3px;
+  border-left-width: 3px;
+  border-top-left-radius: 8px;
+}
+
+.Phone-screen {
+  width: 42vh;
+  height: 88vh;
+  max-width: 390px;
+  max-height: 816px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+/* Hugkin */
+.Hugkin {
+  display: flex;
+  min-height: 100%;
+  background-color: #2d2d2d;
+  font-family: "Noto Serif JP", fantasy;
+  font-weight: 200;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.Hugkin-screen {
+  flex: 1;
+  background-color: #2d2d2d;
+  padding: 50px 30px;
+  color: white;
+  transition: opacity 0.3s;
+}
+
+.Hugkin-screen.is-loading {
+  opacity: 0.0;
+}
+
+/* text */
+.Hugkin h1 {
+  font-size: 48px;
+}
+
+.Hugkin a {
+  font-size: 18px;
+  color: unset;
+  text-decoration: unset;
+}
+
+/* Menu */
+.Menu-note {
+  display: inline-block;
+  margin-left: 5px;
+  color: #CA79BD;
+}
+
+/* Nav */
+.Nav-border {
+  height: 1px;
+  width: 80%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-image: url("../assets/border.svg");
+}
+
+
+.Nav a {
+  display: block;
+}
+
+.Nav a + a {
+  margin-top: 10px;
+}

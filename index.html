@@ -2,57 +2,49 @@
 <head>
   <meta charset="UTF-8">
 
+  <!-- caching -->
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+  <meta http-equiv="Expires" content="Thu, 01 Jan 1970 00:00:00 GMT" />
+
   <!-- title -->
   <title>hugmenu</title>
 
+  <!-- i am wroth to include these googlefonts but my conversions own converted woffs -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
+
   <!-- style -->
-  <link href="./index.css" rel="stylesheet">
+  <link href="./src/main.css" rel="stylesheet">
+
+  <!-- js -->
+  <script type="module" src="./src/main.js"></script>
 </head>
 
 <body>
   <div class="Phone">
     <div class="Phone-screen">
       <main class="Hugkin">
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-        <p>hello welcome to hugkin</p>
-      </main>
+        <article id="menu" class="Hugkin-screen is-loading">
+          <h1 class="Menu-line">hugkin</h1>
+          <nav class="Nav">
+            <div class="Nav-border Menu-line"></div>
+            <a class="Menu-line" href="#">my binder</a>
+            <a class="Menu-line" href="#">add card</a>
+
+            <div class="Nav-border Menu-line"></div>
+            <a class="Menu-line" href="#">messages <span class="Menu-note">4</span></a>
+
+            <div class="Nav-border Menu-line"></div>
+            <a class="Menu-line" href="#">guidelines</a>
+          </nav>
+        </article>
+     </main>
     </div>
 
-    <div class="Phone-notch"></div>
+    <div class="Phone-frame">
+      <div class="Phone-notch"></div>
+    </div>
   </div>
 </body>
 </html>
