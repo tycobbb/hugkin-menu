@@ -1,8 +1,8 @@
 import { view } from "./view.js"
-import { rand, wait } from "./utils.js"
+import { screen } from "./screen.js"
+import { rand } from "./utils.js"
 
 // -- props --
-let $mScreen = null
 let $mEl = null
 let $mList = null
 let $mCards = null
@@ -11,7 +11,6 @@ let $mImages = null
 // -- lifetime --
 export function init() {
   // capture elements
-  $mScreen = document.getElementById("screen")
   $mEl = document.getElementById("binder")
   $mList = $mEl.querySelector(".CardList")
   $mCards = $mEl.querySelectorAll(".Card")
@@ -38,7 +37,7 @@ function prepare() {
   }
 
   // determine inset to center last card
-  const ph = $mScreen.getBoundingClientRect().height
+  const ph = screen().getBoundingClientRect().height
   const ih = $mImages[0].height
   const inset = (ph - ih) / 2;
 

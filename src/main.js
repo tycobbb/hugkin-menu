@@ -1,10 +1,12 @@
 import { init as initMenu } from "./menu.js"
 import { init as initBinder } from "./binder.js"
+import { init as initMarks } from "./marks.js"
 import { wait, waitFrames } from "./utils.js"
 
 // -- props --
 let mMenu = null
 let mBinder = null
+let mMarks = null
 let mVisible = null
 
 // -- lifetime --
@@ -19,6 +21,7 @@ async function main() {
   // initialize screens
   mMenu = initMenu()
   mBinder = initBinder()
+  mMarks = initMarks()
 
   // show screeen
   showCurrent()
