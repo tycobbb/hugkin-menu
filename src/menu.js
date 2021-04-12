@@ -56,7 +56,7 @@ async function show() {
 }
 
 async function hide() {
-  $mEl.classList.toggle("is-hidden", true)
+  $mEl.classList.toggle("is-hiding", true)
 
   for (const $el of $mLines) {
     const tx = -60 - rand(20)
@@ -65,15 +65,18 @@ async function hide() {
     $el.style.transform = `translate(${tx}px, ${ty}px) rotate(${ta}deg)`
   }
 
-  reset()
+  hide2()
 
   await wait(300)
 }
 
-async function reset() {
+async function hide2() {
   await wait(1000)
 
   for (const $el of $mLines) {
     $el.style.transform = `translate(${$el.dataset.tx}px)`
   }
+
+  $mEl.classList.toggle("is-hiding", false)
+  $mEl.classList.toggle("is-hidden", true)
 }
